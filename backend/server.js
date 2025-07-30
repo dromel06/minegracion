@@ -21,6 +21,9 @@ const start = async () => {
 
         // Registrar rutas
         await fastify.register(userRoutes, { prefix: '/api/users' });
+        fastify.get('/', async (request, reply) => {
+            return { message: 'API de usuarios en funcionamiento' };
+        });
 
         // Iniciar servidor
         const port = process.env.PORT || 3001;
